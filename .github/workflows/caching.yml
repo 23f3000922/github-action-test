@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/cache@v4
+        uses: actions/checkout@v4  # ✅ FIXED
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
@@ -24,7 +24,7 @@ jobs:
         id: cache-uv # Give the step an id to check its output
         with:
           path: ~/.cache/uv
-          key: cache-2dd02ad
+          key: cache-2dd02ad   # ✅ Required
 
       - name: Install dependencies
         run: uv pip install -r requirements.txt
