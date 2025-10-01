@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4  # ✅ check out your code
+        uses: actions/checkout@v4
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
@@ -24,12 +24,12 @@ jobs:
         id: cache-uv
         with:
           path: ~/.cache/uv
-          key: cache-2dd02ad   # ✅ required
+          key: cache-2dd02ad
 
       - name: Install dependencies
         run: uv pip install -r requirements.txt
 
-      - name: prime-cache-2dd02ad   # ✅ EXACT required name
+      - name: prime-cache-2dd02ad
         run: |
           if [[ "${{ steps.cache-uv.outputs.cache-hit }}" == "true" ]]; then
             echo "Cache hit! Dependencies were restored."
